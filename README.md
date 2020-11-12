@@ -1,5 +1,4 @@
-# GANmemory_LifelongLearning
-GAN Memory for Lifelong learning
+# GAN Memory for Lifelong learning
 This is a pytorch implementation of the NeurIPS paper [GAN Memory with No Forgetting](https://papers.nips.cc/paper/2020/file/bf201d5407a6509fa536afc4b380577e-Paper.pdf).
 
 Please consider citing our paper if you refer to this code in your research.
