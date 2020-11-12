@@ -20,6 +20,7 @@ pytorch=1.2.0
 
 # Notes
 The source model is based on the GP-GAN.
+
 `GANMemory_Flowers.py` is the implementation of the model in Figure1(a).
 
 `classConditionGANMemory.py` is the class-conditional generalization of GAN memory, which is used as pseudo rehearsal for a lifelong classification as shown in Section 5.2.
