@@ -51,7 +51,7 @@ Finally, run `GANMemory_Flowers.py`.
 
 2. run `Lifelong_classification.py` to get the classification results.
 
-Since our GAN memory introduce style parameters for each task specifically (no influence among tasks), it will be much simppler if we devide the processes into two stages:
+Note, for the sake of simplicity, we devide the pseudo rehearsal based lifelong classification processes into above two stages, one can of course find a way to merge these two stages to form a learning process along task sequence.
 
 
 ## Acknowledgement
