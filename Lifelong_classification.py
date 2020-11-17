@@ -194,14 +194,10 @@ def evalu_my(model, test_loader, test_task=-1):
 train_path_all = 'F:/download_data/Image_DATA/ImageNet_GANmemory/'
 model_path_all = 'F:/RUN_CODE_OUT/OWM/'
 
-# test_path = 'F:/download_data/Image_DATA/ImageNet_GANmemory/test/'
-# test_path = test_path + 'fish/'
-
-# test_path = train_path_all + 'fish/'
 
 test_path = 'F:/download_data/Image_DATA/ImageNet_GANmemory/Joint/test_joint/'
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-config_path = 'F:/contral_kernel_results_remote/OWM_GAN/code/configs/ImageNet_classify_53.yaml'
+config_path = './configs/ImageNet_classify_53.yaml'
 config = load_config(config_path, 'configs/default.yaml')
 
 
@@ -213,7 +209,6 @@ class_names = test_dataset.classes
 
 classify_my = Net(nlabels=N_labels, device=device).to(device)
 c_optimizer = torch.optim.Adam(classify_my.params, lr=1e-4)
-# c_optimizer = torch.optim.SGD(classify_my.params, lr=0.001, momentum=0.9)
 if do_method == 'MeRGAN':
     config['generator']['name'] = 'resnet4_MR'
     config['discriminator']['name'] = 'resnet4_MR'
@@ -227,16 +222,15 @@ elif do_method == 'GAN_Memory':
     config['data']['nlabels'] = 6
     generator, _ = build_models(config)
     generator = generator.to(device)
-    load_dir = 'F:/RUN_CODE_OUT/GAN_stability/pretrained/weights/saved_data/'
+    load_dir = './pretrained_model/'
     DATA_FIX = 'CELEBA'
     dict_G = torch.load(load_dir + DATA_FIX + 'Pre_generator')
-    # dict_G = torch.load('F:/RUN_CODE_OUT/OWM/cats_AdaFM_bignet_CelebA_NOBETA/G_8_D_2/models/cats_00067208_Pre_generator')
     generator = model_equal_part_embed(generator, dict_G)
     generator = load_model_norm(generator)
 
     task_name = ['fish', 'bird', 'snake', 'dog', 'butterfly', 'monkey']
     for task_id in range(6):
-        model_file = 'F:/RUN_CODE_OUT/OWM/imagenet_' + task_name[task_id] + '_AdaFM_bias_[norm]/' + '/G_8_D_2/models/'
+        model_file = main_path + '/results/imagenet_' + task_name[task_id] + '/models/'
         dict_G = torch.load(model_file + task_name[task_id] + '_%08d_Pre_generator' % 59999)
         generator = model_equal_part_embed(generator, dict_G)
         generator(task_id=task_id, UPDATE_GLOBAL=True)
