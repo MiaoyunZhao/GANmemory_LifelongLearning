@@ -108,11 +108,9 @@ epoch_idx = load_dict.get('epoch_idx', -1)
 print(generator.module.resnet_0_0.conv_0.weight[1,1,:,:])
 
 
-if DATA == 'ImageNet':
-
-    TrainModeSave = DATA
-    torch.save(generator.module.state_dict(), save_dir + TrainModeSave + 'Pre_generator')
-    torch.save(discriminator.module.state_dict(), save_dir + TrainModeSave + 'Pre_discriminator')
+TrainModeSave = DATA
+torch.save(generator.module.state_dict(), save_dir + TrainModeSave + 'Pre_generator')
+torch.save(discriminator.module.state_dict(), save_dir + TrainModeSave + 'Pre_discriminator')
 
 
 
