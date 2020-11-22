@@ -1,7 +1,7 @@
 import yaml
 from torch import optim
 from os import path
-from gan_training.models import generator_dict, discriminator_dict, encoder_dict
+from gan_training.models import generator_dict, discriminator_dict
 
 
 # General config
