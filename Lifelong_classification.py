@@ -40,7 +40,6 @@ from gan_training.config import (
 )
 from EWC_ import Net
 import scipy.io as sio
-import gan_training.utils_distill as Ditill
 ce_loss = nn.CrossEntropyLoss()
 main_path = './code_GAN_Memory/'
 
