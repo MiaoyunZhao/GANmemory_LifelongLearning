@@ -42,9 +42,7 @@ from gan_training.config_OWM import (
 ''' ===================--- Set the traning mode ---==========================
 DATA: going to train
 DATA_FIX: used as a fixed pre-trained model
-G_Layer_FIX, D_Layer_FIX: number of layers to fix
 ============================================================================='''
-# DATA = 'CELEBA'
 seed_torch(999)
 DATA_FIX = 'CELEBA'
 Num_epoch = 60000//(7200//16) + 1 
@@ -212,22 +210,22 @@ for task_id in range(6):
                 generator = model_equal_all(generator, dict_G)
                 generator(ztest, ytest, UPDATE_GLOBAL=True,device=device)
             if task_id >= 2:
-                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task1_lowrank_highLayers/models/but1_00019999_Pre_generator"
+                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task1_lowrank_highLayers/models/but1_00024999_Pre_generator"
                 dict_G = torch.load(model_file)
                 generator = model_equal_all(generator, dict_G)
                 generator(ztest, ytest, UPDATE_GLOBAL=True,device=device)
             if task_id >= 3:
-                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task2_lowrank_highLayers/models/but2_00019999_Pre_generator"
+                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task2_lowrank_highLayers/models/but2_00024999_Pre_generator"
                 dict_G = torch.load(model_file)
                 generator = model_equal_all(generator, dict_G)
                 generator(ztest, ytest, UPDATE_GLOBAL=True,device=device)
             if task_id >= 4:
-                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task3_lowrank_highLayers/models/but3_00019999_Pre_generator"
+                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task3_lowrank_highLayers/models/but3_00024999_Pre_generator"
                 dict_G = torch.load(model_file)
                 generator = model_equal_all(generator, dict_G)
                 generator(ztest, ytest, UPDATE_GLOBAL=True,device=device)
             if task_id >= 5:
-                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task4_lowrank_highLayers/models/but4_00014999_Pre_generator"
+                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task4_lowrank_highLayers/models/but4_00024999_Pre_generator"
                 dict_G = torch.load(model_file)
                 generator = model_equal_all(generator, dict_G)
                 generator(ztest, ytest, UPDATE_GLOBAL=True,device=device)
