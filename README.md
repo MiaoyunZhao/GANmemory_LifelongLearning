@@ -52,6 +52,9 @@ Finally, run `GANMemory_Flowers.py`.
 
 2. run `Lifelong_classification.py` to get the classification results.
 
+3. run `Compression_low_rank_six_butterfly.py` to get the compression results.
+
+
 Note, for the sake of simplicity, we devide the pseudo rehearsal based lifelong classification processes into above two stages, one can of course find a way to merge these two stages to form a learning process along task sequence.
 
 
