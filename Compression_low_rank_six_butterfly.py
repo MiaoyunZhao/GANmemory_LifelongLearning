@@ -310,7 +310,6 @@ for task_id in range(6):
         save_dir = config['training']['out_dir'] + '/models/'
         if not os.path.isdir(save_dir):
             os.makedirs(save_dir)
-        FLAG = 500
         get_parameter_number(generator)
         get_parameter_number(discriminator)
     
@@ -337,8 +336,7 @@ for task_id in range(6):
     
             # Generators updates
             z = zdist.sample((batch_size,)).to(device)
-            gloss, x_fake, l1_loss = trainer.generator_trainstep(y, z, FLAG + 1.0, Iterr=it, is_lowrank=True)
-            FLAG = FLAG * 0.9995
+            gloss, x_fake, l1_loss = trainer.generator_trainstep(y, z, Iterr=it, is_lowrank=True)
     
             if it>10 and config['training']['take_model_average']:
                 update_average(generator_test, generator,
