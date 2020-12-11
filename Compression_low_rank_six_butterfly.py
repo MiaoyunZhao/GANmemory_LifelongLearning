@@ -45,7 +45,7 @@ DATA_FIX: used as a fixed pre-trained model
 ============================================================================='''
 seed_torch(999)
 DATA_FIX = 'CELEBA'
-Num_epoch = 60000//(7200//16) + 1 
+Num_epoch = 20000//(1300//16) + 1 
 
 CONS_lowrank = 0.01
 # task_id = 5
@@ -205,27 +205,27 @@ for task_id in range(6):
         # discriminator = load_model_norm(discriminator, is_G=False)
         if task_id > 0:
             if task_id >= 1:
-                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task0_lowrank/models/but0_00024999_Pre_generator"
+                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task0_lowrank/models/but0_00019999_Pre_generator"
                 dict_G = torch.load(model_file)
                 generator = model_equal_all(generator, dict_G)
                 generator(ztest, ytest, UPDATE_GLOBAL=True,device=device)
             if task_id >= 2:
-                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task1_lowrank_highLayers/models/but1_00024999_Pre_generator"
+                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task1_lowrank_highLayers/models/but1_00019999_Pre_generator"
                 dict_G = torch.load(model_file)
                 generator = model_equal_all(generator, dict_G)
                 generator(ztest, ytest, UPDATE_GLOBAL=True,device=device)
             if task_id >= 3:
-                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task2_lowrank_highLayers/models/but2_00024999_Pre_generator"
+                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task2_lowrank_highLayers/models/but2_00019999_Pre_generator"
                 dict_G = torch.load(model_file)
                 generator = model_equal_all(generator, dict_G)
                 generator(ztest, ytest, UPDATE_GLOBAL=True,device=device)
             if task_id >= 4:
-                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task3_lowrank_highLayers/models/but3_00024999_Pre_generator"
+                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task3_lowrank_highLayers/models/but3_00019999_Pre_generator"
                 dict_G = torch.load(model_file)
                 generator = model_equal_all(generator, dict_G)
                 generator(ztest, ytest, UPDATE_GLOBAL=True,device=device)
             if task_id >= 5:
-                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task4_lowrank_highLayers/models/but4_00024999_Pre_generator"
+                model_file = "/hpc/group/carin/mz149/code/Six_butterfly_task4_lowrank_highLayers/models/but4_00019999_Pre_generator"
                 dict_G = torch.load(model_file)
                 generator = model_equal_all(generator, dict_G)
                 generator(ztest, ytest, UPDATE_GLOBAL=True,device=device)
@@ -384,7 +384,7 @@ for task_id in range(6):
                     TrainModeSave = DATA + '_%08d_' % it
                     generator_test_part = save_adafm_only(generator_test)
                     torch.save(generator_test_part, save_dir + TrainModeSave + 'Pre_generator')
-                if it+1 == 60000:
+                if it+1 == 20000:
                     TrainModeSave = DATA + '_%08d_' % it
                     discriminator_part = save_adafm_only(discriminator, is_G=False)
                     torch.save(discriminator_part, save_dir + TrainModeSave + 'Pre_discriminator')
