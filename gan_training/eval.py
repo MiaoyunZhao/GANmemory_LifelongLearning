@@ -1,6 +1,6 @@
 import torch
 from gan_training.metrics import inception_score
-from gan_training.metrics.fid_score import calculate_fid_given_images, calculate_fid_given_real_ms
+from gan_training.metrics.fid_score import calculate_fid_given_images
 import numpy as np
 
 class Evaluator(object):
@@ -71,9 +71,7 @@ class Evaluator(object):
 
         fid_imgs = np.array(imgs[:self.fid_sample_size])
         if exit_real_ms:
-            fid = calculate_fid_given_real_ms(real_m, real_s, fid_imgs,
-                                              batch_size=self.batch_size,
-                                              cuda=True)
+            fid=0
         else:
             if self.fid_real_samples is not None:
                 fid = calculate_fid_given_images(
