@@ -133,7 +133,7 @@ if 1:
     generator = load_model_norm(generator)
     dict_D = torch.load(load_dir + DATA_FIX + 'Pre_discriminator')
     discriminator = model_equal_all(discriminator, dict_D)
-    discriminator = load_model_norm(discriminator, is_G=False)
+    # discriminator = load_model_norm(discriminator, is_G=False)
 
     for name, param in generator.named_parameters():
         if name.find('AdaFM_') >= 0:
