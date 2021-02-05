@@ -78,6 +78,7 @@ class Generator(nn.Module):
         out = self.conv_img(actvn(out))
         out = torch.tanh(out)
         if is_FID:
+            out = F.interpolate(out, 128)
             
         return out, batch_size
 
