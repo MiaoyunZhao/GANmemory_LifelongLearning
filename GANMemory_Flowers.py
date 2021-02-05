@@ -110,7 +110,7 @@ if 1:
     test_dataset, _ = get_dataset(
         name=config['data']['type'],
         data_dir=config['data']['test_dir'],
-        size=config['data']['img_size'],
+        size=128,
         lsun_categories=config['data']['lsun_categories_train']
     )
     test_loader = torch.utils.data.DataLoader(
@@ -189,7 +189,7 @@ if 1:
     else:
         generator_test = generator
 
-    x_real_FID, _ = utils.get_nsamples(train_loader, NNN)
+    x_real_FID, _ = utils.get_nsamples(test_loader, NNN)
     evaluator = Evaluator(generator_test, zdist, ydist,
                           batch_size=batch_size, device=device,
                           fid_real_samples=x_real_FID, inception_nsamples=NNN, fid_sample_size=NNN)
