@@ -45,6 +45,14 @@ data
 
 Finally, run `GANMemory_Flowers.py`.
 
+The FID scores of our method shown in Figure 1(b) are summerized in the following table.
+
+| Dataset      |   5K  |   10K |   15K |  20K  |  25K  |  30K  |  35K  |  40K  |  45K  |  50K  |  55K  |  60K  |
+| :---         |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |
+| Flowers      | 29.26 | 23.25 | 19.73 | 17.98 | 17.04 | 16.10 | 15.93 | 15.38 | 15.33 | 14.96 | 15.19 | 14.75 |
+| Cathedrals   | 19.78 | 18.32 | 17.10 | 16.47 | 16.15 | 16.33 | 16.08 | 15.94 | 15.78 | 15.60 | 15.64 | 15.67 |
+| Cats         | 38.56 | 25.74 | 23.14 | 21.15 | 20.80 | 20.89 | 19.73 | 19.88 | 18.69 | 18.57 | 17.57 | 18.18 |
+
 
 ## For lifelong classification
 
